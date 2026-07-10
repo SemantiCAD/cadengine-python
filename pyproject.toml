@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cadengine"
+version = "0.1.0"
+description = "Python SDK and CLI for the CadEngine API — CAD file analysis, cost estimation, and manufacturing intelligence"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary" }
+authors = [{ name = "CadEngine" }]
+keywords = ["cad", "step", "dxf", "manufacturing", "cnc", "dfm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Manufacturing",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = ["httpx>=0.27"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+cadengine = "cadengine.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cadengine"]
